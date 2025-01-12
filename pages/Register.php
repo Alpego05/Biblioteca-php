@@ -20,6 +20,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
    
     if ($RegisterController->register($nombre, $apellido1, $apellido2, $email, $password)) { 
         echo 'Registro exitoso!'; 
+       header("Location: ../index.php");
     } else { 
         echo 'Registro fallido!'; 
     }

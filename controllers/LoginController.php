@@ -11,7 +11,7 @@ class LoginController{
     public function login($username, $password)
     {
         $user = $this->model->getUsuario($username);
-        if ($user && $user[0]['pass'] === $password) {
+        if ($user && password_verify($password, $user[0]['pass'])) {
             $_SESSION['user_id'] = $user[0]['id'];
             $_SESSION['role'] = $user[0]['role'];
             $_SESSION['username'] = $user[0]['username'];
