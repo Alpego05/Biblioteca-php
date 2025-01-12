@@ -6,8 +6,7 @@ class LibrosModel{
     private $pdo;
     private $bd;
 
-    public function __construct()
-    {
+    public function __construct(){
         $this->bd = new DB(); // Crear instancia de DB
         $this->pdo = $this->bd->getPDO(); // Obtener el objeto PDO
     }
