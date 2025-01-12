@@ -8,6 +8,7 @@ class LoginView {
         echo '  <label for="password">Password:</label>';
         echo '  <input type="password" id="password" name="password">';
         echo '  <button type="submit">Login</button>';
+       echo '  <input type="hidden" name="token" value="' . $_SESSION['token'] . '">';
         echo '</form>';
     }
 }

@@ -11,7 +11,6 @@ class UsuariosModel {
         $this->pdo = $this->bd->getPDO(); 
     }
 
-    // Recojemos el usuario verificando que existe
     public function getUsuario($usuario) {
         $stmt = $this->pdo->prepare('SELECT * FROM usuarios WHERE nombre = :usuario');
         $stmt->bindParam(':usuario', $usuario);
