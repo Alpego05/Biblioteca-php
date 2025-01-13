@@ -21,7 +21,7 @@ $loginView->mostrarLogin();
 
 if ($_SERVER['REQUEST_METHOD'] === "POST"){
 
-    
+
 
     $username = $_POST['username'];
     $password = $_POST['password'];
@@ -39,6 +39,11 @@ if ($_SERVER['REQUEST_METHOD'] === "POST"){
         echo 'Login fallido!';
     }
 }
+
+
+
+
+
 
 //test
 // if ($_SERVER['REQUEST_METHOD'] === 'POST') {

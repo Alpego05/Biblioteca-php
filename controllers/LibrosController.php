@@ -1,16 +1,16 @@
 <?php
-class LibrosController{
+class LibrosController {
     private $model;
     private $view;
-    public function __construct(){
-        $this->model = new LibrosModel();
-        $this->view = new ListarLibrosView();
+
+    public function __construct($model, $view) {
+        $this->model = $model;
+        $this->view = $view;
     }
-    public function listar()
-    {
+
+    public function listar() {
         $libros = $this->model->getLibros();
         $this->view->mostrarLibros($libros);
     }
 }
-
 ?>

@@ -37,10 +37,8 @@ class ListarLibrosView {
             echo '<p class="text-gray-600 text-sm my-2">ISBN: ' . $libro['ISBN'] ;
             echo  '<br>';
             echo '<form method="POST" action="reservar.php" >';
-            echo '<input type="hidden" name="ISBN" value="' . $libro['ISBN'];
-            echo '<button  class=" shadow-lg mt-4 bg-purple-500 text-white py-1 px-4 rounded hover:bg-white hover:text-purple-500 border border-2 transition-all ease ">
-            <a href="../pages/Reservar.php">Reservar</a>
-            </button>';
+            echo '<input type="hidden" name="ISBN" value="' . $libro['ISBN'] . '">';
+           echo '<button type="submit" class="shadow-lg mt-4 bg-purple-500 text-white py-1 px-4 rounded hover:bg-white hover:text-purple-500 border border-2 transition-all ease" name="reservar" value="' . $libro['ISBN'] . '">Reservar</button>';
             echo '</form>';
             echo '</div>';
             echo '</div>';
