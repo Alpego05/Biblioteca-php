@@ -10,3 +10,4 @@ $LibrosController = new LibrosController();
 $LibrosController->listar();
 
 
+?>

@@ -23,8 +23,9 @@ class LoginView {
         echo '  <button type="submit" class="w-full bg-purple-600 text-white py-2 px-4 rounded hover:bg-purple-700 transition-all ease">Login</button>';
         echo '  <button class=" my-2 w-full bg-purple-600 text-white py-2 px-4 rounded hover:bg-purple-700 transition-all ease">
          <a href="./pages/Register.php">Registro</a>
-       
+
         </button>';
+        /* hay que darle primero a post que si no no funciona el link por el metodo de $_POST */
         echo '  <input type="hidden" name="token" value="' . $_SESSION['token'] . '">';
         echo '</form>';
         echo '</div>';

@@ -11,10 +11,11 @@ class LoginController{
     public function login($username, $password)
     {
         $user = $this->model->getUsuario($username);
+        print_r($user);
         if ($user && password_verify($password, $user[0]['pass'])) {
-            $_SESSION['user_id'] = $user[0]['id'];
-            $_SESSION['role'] = $user[0]['role'];
-            $_SESSION['username'] = $user[0]['username'];
+            $_SESSION['user_id'] = $user['id'];
+            $_SESSION['role'] = $user['role'];
+            $_SESSION['username'] = $user['username'];
             return true;
         } else {
             return false;
