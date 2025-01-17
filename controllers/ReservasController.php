@@ -1,14 +1,18 @@
 <?php
 require_once __DIR__ . '/../models/ReservasModel.php';
+
 require_once __DIR__ . '/../views/ReservarView.php';
+require_once __DIR__ . '/../views/MisReservasView.php';
 
 class ReservasController {
     private $model;
     private $view;
+    private $reservasView;
 
     public function __construct() {
         $this->model = new ReservasModel();
         $this->view = new ReservarView();
+        $this->reservasView = new MisReservasView();
     }
 
    
@@ -34,5 +38,14 @@ class ReservasController {
         }
 
     }
+
+   public function mostrarMisReservas() {
+    if (isset($_SESSION['id'])) {
+        $id_usuario = $_SESSION['id'];
+        $reservas = $this->model->getReservasPorId($id_usuario);
+        $this->reservasView->mostrarMisReservas($reservas);
+    
+    }
+}
 }
 ?>

@@ -22,7 +22,7 @@ class ListarLibrosView
             echo '<img class=" h-3/4 border border-2 w-full object-cover" src="./assets/libros/' . $libro['url_imagen'] . '" alt="' . $libro['titulo'] . '">';
             echo '<div class="p-4 text-center">';
             echo '<h2 class="text-lg font-semibold text-gray-800">' . $libro['titulo'] . '</h2>';
-            echo '<p class="text-gray-600">' . $libro['genero'] . '</p>';
+            echo '<p class="text-red-600">' . $libro['genero'] . '</p>';
             echo '<p class="text-gray-600">' . $libro['autor'] . '</p>';
             echo '<p class="text-gray-600 text-sm my-2">ISBN: ' . $libro['ISBN'];
             echo  '<br>';
@@ -62,6 +62,3 @@ class ListarLibrosView
 }
 ?>
 
-</body>
-
-</html>

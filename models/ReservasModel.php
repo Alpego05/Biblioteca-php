@@ -41,6 +41,8 @@ class ReservasModel {
         $id = $_SESSION['id'];
         $stmt->bindParam(':id', $id);
         $stmt->execute();
+        
+        return $stmt->fetchAll(PDO::FETCH_ASSOC);
     }
 
     public function getReserva ($ISBN){

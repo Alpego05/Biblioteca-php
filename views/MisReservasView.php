@@ -1,7 +1,7 @@
 <?php
 class MisReservasView
 {
-    public function mostrarMisReservas($reservas, $error = '')
+    public function mostrarMisReservas($reservas)
     {
         echo '<div class="flex items-center justify-center min-h-screen bg-gray-100">';
         echo '<div class="bg-white p-6 rounded-lg shadow-lg w-full max-w-4xl">';
@@ -13,20 +13,20 @@ class MisReservasView
         echo '    <thead>';
         echo '      <tr>';
         echo '        <th class="px-4 py-2">ID Reserva</th>';
-        echo '        <th class="px-4 py-2">Fecha</th>';
-        echo '        <th class="px-4 py-2">Hora</th>';
-        echo '        <th class="px-4 py-2">Descripción</th>';
+        echo '        <th class="px-4 py-2">ISBN</th>';
+        echo '        <th class="px-4 py-2">Fecha desde</th>';
+        echo '        <th class="px-4 py-2">Fecha hasta</th>';
         echo '      </tr>';
         echo '    </thead>';
         echo '    <tbody>';
-        
+
         if (!empty($reservas)) {
             foreach ($reservas as $reserva) {
-                echo '      <tr>';
+                echo '      <tr class= "text-center">';
                 echo '        <td class="border px-4 py-2">' . $reserva['id'] . '</td>';
-                echo '        <td class="border px-4 py-2">' . $reserva['fecha'] . '</td>';
-                echo '        <td class="border px-4 py-2">' . $reserva['hora'] . '</td>';
-                echo '        <td class="border px-4 py-2">' . $reserva['descripcion'] . '</td>';
+                echo '        <td class="border px-4 py-2">' . $reserva['ISBN'] . '</td>';
+                echo '        <td class="border px-4 py-2">' . $reserva['fecha_desde'] . '</td>';
+                echo '        <td class="border px-4 py-2">' . $reserva['fecha_hasta'] . '</td>';
                 echo '      </tr>';
             }
         } else {

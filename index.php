@@ -24,7 +24,8 @@
    
 
     <div class="text-xl flex">
-        <a class="mx-6" href="index.php?controler=ReservasController&action=">Mis Reservas <i class="ri-book-fill"></i> </a>
+        <a class="mx-6" href="index.php?controller=ReservasController&action=mostrarMisReservas">Mis Reservas <i class="ri-book-fill"></i> </a>
+
         <a class="mx-6" href="index.php?controler=LoginController&action=logout">Cerrar Sesión <i class="ri-close-circle-line  mx-1"></i> </a>
            
     </div>
