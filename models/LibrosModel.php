@@ -18,15 +18,29 @@ class LibrosModel{
         return $stmt->fetchAll(PDO::FETCH_ASSOC);
     }
 
-    public function eliminarLibro($id){
+    public function eliminarLibro($ISBN){
+        $stmt = $this->pdo->prepare('DELETE FROM libros WHERE id = :ISBN');
+        $stmt->bindParam(':ISBN', $ISBN);
+        $stmt->execute();
 
     }
 
-    public function agregarLibro($libro){
+    public function agregarLibro($ISBN, $titulo, $autor){
+
+        $stmt = $this->pdo->prepare('INSERT INTO libros (ISBN, titulo, autor, url_imagen) VALUES (:ISBN, :titulo, :autor, :url_imagen)');
+        $stmt->bindParam(':ISBN', $ISBN);
+        $stmt->bindParam(':titulo',$titulo);
+        $stmt->bindParam(':autor', $autor);
+
+        $url_defecto = '/placeholder/placeholder.jpg';
+        $stmt->bindParam(':url_imagen', $url_defecto);
+
+        $stmt->execute();
 
     }
 
-    public function editarLibro($id){
+    public function editarLibro($ISBN){
+        
 
     }
 }

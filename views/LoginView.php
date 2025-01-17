@@ -26,12 +26,11 @@ class LoginView {
         echo '  <button type="submit" class="w-full bg-red-800 text-white py-2 px-4 rounded hover:bg-red-900 transition-all ease">Login</button>';
 
         echo '  <div class="text-center text-gray-700 my-4">';
-        echo '    <!-- Aquí podrías añadir un enlace para el registro o recuperar contraseña -->';
         echo '  </div>';
 
         echo '</form>';
 
-        // Imagen de login (a la derecha del formulario)
+        // Imagen de login 
         echo '<div class="flex justify-center mt-4">';
         echo '  <img src="./assets/images/login.jpg" alt="Logo de la aplicación" width="320px" class="rounded-lg shadow-lg">';
         echo '</div>';
