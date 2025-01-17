@@ -1,24 +1,59 @@
 <?php
 require_once __DIR__ . '/../models/UsuariosModel.php';
+require_once __DIR__ . '/../views/LoginView.php';
 
-class LoginController {
+class LoginController
+{
     private $model;
+    private $view;
 
-    public function __construct() {
+    public function __construct()
+    {
         $this->model = new UsuariosModel();
+        $this->view = new LoginView();
     }
 
-    public function login($username, $password) {
-        $user = $this->model->getUsuario($username);
-        if ($user && password_verify($password, $user['pass'])) {
-            $_SESSION['user_id'] = $user['id'];
-            $_SESSION['role'] = $user['role'];
-            $_SESSION['username'] = $user['username'];
-            return true;
-        } else {
-            return false;
+    public function mostrarLogin($error = '')
+    {
+        $this->view->mostrarLogin($error);
+    }
+
+    public function procesarLogin()
+{
+    if ($_SERVER['REQUEST_METHOD'] === 'POST') {
+        $username = $_POST['username'] ?? '';
+        $password = $_POST['password'] ?? '';
+
+        // Validar campos vacíos
+        if (empty($username) || empty($password)) {
+            $this->mostrarLogin('⚠️ Todos los campos son obligatorios.');
+            
+            return;
         }
+
+        // Buscar usuario en la base de datos
+        $usuario = $this->model->getUsuario($username);
+
+        // Verificar si el usuario existe y la contraseña coincide
+        if ($usuario && password_verify($password, $usuario[0]['pass'])) {
+            session_start();
+            session_regenerate_id(); // Evitar fijación de sesión
+            $_SESSION['username'] = $username;
+            $_SESSION['role'] = $usuario[0]['rol'];
+
+            // Redirigir tras login exitoso
+            header('Location: index.php?controller=LibrosController&action=listar');
+            exit();
+        } else {
+            // Mostrar error si el login falla
+            $this->mostrarLogin('❌ Usuario o contraseña incorrectos.');
+        }
+    } else {
+        // Si no es POST, mostrar el formulario
+        $this->mostrarLogin();
     }
 }
 
+    
+}
 ?>

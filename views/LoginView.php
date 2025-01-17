@@ -1,35 +1,42 @@
-<!DOCTYPE html> 
-<html lang="es"> 
-    <head> <meta charset="UTF-8"> 
-    <meta name="viewport" content="width=device-width, initial-scale=1.0"> 
-    <title>Biblioteca Ribera</title> 
-    <link href="https://cdn.jsdelivr.net/npm/tailwindcss@2.2.19/dist/tailwind.min.css" rel="stylesheet"> 
-</head>
-<body class="bg-gray-100 text-gray-900">
 <?php
 class LoginView {
-    public function mostrarLogin() {
+    public function mostrarLogin($error = '') {
         echo '<div class="flex items-center justify-center min-h-screen bg-gray-100">';
-        echo '<form method="POST" action="index.php" class="bg-white p-6 rounded-lg shadow-lg w-full max-w-md">';
+        
+        echo '<form method="POST" action="index.php?controller=LoginController&action=procesarLogin" class="my-6 p-9 h-full bg-white rounded-lg shadow-lg w-full max-w-md">';
         echo '  <h2 class="text-2xl font-bold text-center mb-4">Iniciar Sesión</h2>';
+
+        if (!empty($error)) {
+            echo '<p class="text-red-500 text-center mb-4">' . $error . '</p>';
+        }
+
         echo '  <div class="mb-4">';
         echo '    <label for="username" class="block text-gray-700">Username:</label>';
-        echo '    <input type="text" id="username" name="username" class="w-full p-2 border border-gray-300 rounded mt-1 focus:outline-none focus:ring-2 focus:ring-purple-600">';
+        echo '    <input type="text" id="username" name="username" class="w-full p-2 border border-gray-300 rounded mt-1 focus:outline-none focus:ring-2 focus:ring-purple-600" >';
         echo '  </div>';
+
         echo '  <div class="mb-4">';
         echo '    <label for="password" class="block text-gray-700">Password:</label>';
-        echo '    <input type="password" id="password" name="password" class="w-full p-2 border border-gray-300 rounded mt-1 focus:outline-none focus:ring-2 focus:ring-purple-600">';
+        echo '    <input type="password" id="password" name="password" class="w-full p-2 border border-gray-300 rounded mt-1 focus:outline-none focus:ring-2 focus:ring-purple-600" >';
         echo '  </div>';
-        echo '  <button type="submit" class="w-full bg-purple-600 text-white py-2 px-4 rounded hover:bg-purple-700 transition-all ease">Login</button>';
-        echo '  <button class=" my-2 w-full bg-purple-600 text-white py-2 px-4 rounded hover:bg-purple-700 transition-all ease">
-         <a href="./pages/Register.php">Registro</a>
 
-        </button>';
-        /* hay que darle primero a post que si no no funciona el link por el metodo de $_POST */
-        echo '  <input type="hidden" name="token" value="' . $_SESSION['token'] . '">';
+        echo '  <input type="hidden" name="controller" value="login">';
+        echo '  <input type="hidden" name="action" value="ProcesarLogin">';
+        
+        echo '  <button type="submit" class="w-full bg-red-800 text-white py-2 px-4 rounded hover:bg-red-900 transition-all ease">Login</button>';
+
+        echo '  <div class="text-center text-gray-700 my-4">';
+        echo '    <!-- Aquí podrías añadir un enlace para el registro o recuperar contraseña -->';
+        echo '  </div>';
+
         echo '</form>';
+
+        // Imagen de login (a la derecha del formulario)
+        echo '<div class="flex justify-center mt-4">';
+        echo '  <img src="./assets/images/login.jpg" alt="Logo de la aplicación" width="350px" class="rounded-lg shadow-lg">';
+        echo '</div>';
+        
         echo '</div>';
     }
 }
 ?>
-</body>

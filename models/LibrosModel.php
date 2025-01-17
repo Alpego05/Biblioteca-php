@@ -17,6 +17,18 @@ class LibrosModel{
         $stmt->execute();
         return $stmt->fetchAll(PDO::FETCH_ASSOC);
     }
+
+    public function eliminarLibro($id){
+
+    }
+
+    public function agregarLibro($libro){
+
+    }
+
+    public function editarLibro($id){
+
+    }
 }
 
 ?>

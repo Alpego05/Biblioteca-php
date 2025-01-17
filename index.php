@@ -1,63 +1,41 @@
-<?php
-session_start();
-require_once __DIR__ . '/controllers/LoginController.php';
-require_once __DIR__ . '/models/UsuariosModel.php';
-require_once __DIR__ . '/views/LoginView.php';
+<!DOCTYPE html>
+<html lang="en">
 
-// Crear el token
-if (!isset($_SESSION['token'])) {
-    $hora = date('H:i');
-    $session_id = session_id();
-    $token = hash('sha256', $hora . $session_id);
-    $_SESSION['token'] = $token;
-}
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+  <link rel="stylesheet" href="./assets/remixicon/remixicon.css" />
 
-$loginController = new LoginController();
-$usuariosModel = new UsuariosModel();
-$loginView = new LoginView();
+</head>
+<header class="bg-red-800 text-white py-4 sticky top-0 shadow-lg flex justify-between items-center p-3">
+    <div class="">
+        <h1 class="text-center text-3xl font-bold">Biblioteca Ribera</h1>
+    </div>
 
+    <div class="text-xl">
+        <i class="ri-menu-line"></i>
+        <i class="ri-file-user-fill"></i>
 
-$loginView->mostrarLogin();
+    </div>
+</header>
 
-if ($_SERVER['REQUEST_METHOD'] === "POST"){
+<body>
+    
+     <?php
+     // Cargar el archivo del controlador frontal
+     require_once "./frontcontroller.php";
+     
+    
 
+    
+     ?>
 
+    
 
-    $username = $_POST['username'];
-    $password = $_POST['password'];
+    
 
-    if ($loginController->login($username, $password)) {
-       /*  if ($_SESSION['rol'] === 'A') {
-            header("Location: panel_admin.php");
-        } else {
-            header("Location: panel.php");
-        } */
+</body>
 
-        header("Location: pages/biblioteca.php");
-
-    } else {
-        echo 'Login fallido!';
-    }
-}
-
-
-
-
-
-
-//test
-// if ($_SERVER['REQUEST_METHOD'] === 'POST') {
-//     $usuario = $_POST["username"]; 
-//     $contraseña = $_POST["password"];
-// $result = $usuariosModel->getUsuario($usuario);
-
-// if ($result) {
-//     echo 'Usuario encontrado:';
-//     print_r($result);
-// } else {
-//     echo 'Usuario no encontrado.';
-// }
-
-// }
-
-?>
+</html>
