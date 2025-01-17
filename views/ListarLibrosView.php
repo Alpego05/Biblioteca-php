@@ -1,8 +1,19 @@
 <?php
+/**
+ * Clase ListarLibrosView
+ *
+ * Esta clase se encarga de mostrar la vista de la lista de libros
+ */
 class ListarLibrosView
 {
-    // Muestra la lista de libros
-    public function mostrarLibros($libros , $msg)
+    /**
+     * Muestra la lista de libros
+     *
+     * @param array $libros Array de libros para mostrar
+     * @param string $msg Mensaje para mostrar en la vista
+     * @return void
+     */
+    public function mostrarLibros($libros, $msg)
     {
         echo '<div class="container mx-auto p-4">';
         if ($_SESSION['role'] == 'A') {
@@ -31,7 +42,6 @@ class ListarLibrosView
             echo '<button type="submit" class="shadow-lg mt-4 bg-red-500 text-white py-1 px-4 rounded hover:bg-white hover:text-red-500 border border-2 transition-all ease">Reservar</button>';
             echo '</form>';
 
-            /* solo visto por el rol administrador */
             echo "<div class='flex justify-center'>";
             if ($_SESSION['role'] == 'A') {
                 echo '<form method="POST" action="index.php?controller=LibrosController&action=FormEditarLibro">';
@@ -61,4 +71,5 @@ class ListarLibrosView
     }
 }
 ?>
+
 

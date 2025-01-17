@@ -1,14 +1,27 @@
 <?php
-class MisReservasView
-{
-    public function mostrarMisReservas($reservas)
-    {
+
+/**
+ * Clase MisReservasView
+ *
+ * Esta clase se encarga de mostrar la vista de las reservas del usuario
+ */
+class MisReservasView {
+    /**
+     * Muestra la vista de las reservas del usuario
+     *
+     * @param array $reservas Array de reservas del usuario
+     * @return void
+     */
+
+    public function mostrarMisReservas($reservas) {
         echo '<div class="flex items-center justify-center min-h-screen bg-gray-100">';
         echo '<div class="bg-white p-6 rounded-lg shadow-lg w-full max-w-4xl">';
         echo '  <h2 class="text-2xl font-bold text-center mb-4">Mis Reservas</h2>';
+        
         if (!empty($error)) {
             echo '<p class="text-red-500 text-center mb-4">' . $error . '</p>';
         }
+        
         echo '  <table class="table-auto w-full">';
         echo '    <thead>';
         echo '      <tr>';
@@ -34,9 +47,11 @@ class MisReservasView
             echo '        <td class="border px-4 py-2 text-center" colspan="4">No tienes reservas.</td>';
             echo '      </tr>';
         }
+        
         echo '    </tbody>';
         echo '  </table>';
         echo '</div>';
         echo '</div>';
     }
 }
+?>

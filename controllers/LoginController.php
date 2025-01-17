@@ -2,8 +2,7 @@
 require_once __DIR__ . '/../models/UsuariosModel.php';
 require_once __DIR__ . '/../views/LoginView.php';
 
-class LoginController
-{
+class LoginController {
     private $model;
     private $view;
 

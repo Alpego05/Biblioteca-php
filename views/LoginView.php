@@ -1,5 +1,17 @@
 <?php
+
+/**
+ * Clase LoginView
+ *
+ * Esta clase se encarga de mostrar la vista de login
+ */
 class LoginView {
+    /**
+     * Muestra el formulario de login
+     *
+     * @param string $error Mensaje de error para mostrar en la vista
+     * @return void
+     */
     public function mostrarLogin($error = '') {
         echo '<div class="flex items-center justify-center min-h-screen bg-gray-100">';
         

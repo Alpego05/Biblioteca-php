@@ -1,6 +1,17 @@
 <?php
 
+/**
+ * Clase NuevoLibroView
+ *
+ * Esta clase se encarga de mostrar la vista para insertar un nuevo libro
+ */
 class NuevoLibroView {
+    /**
+     * Muestra el formulario para insertar un nuevo libro
+     *
+     * @param string $msg Mensaje para mostrar en la vista
+     * @return void
+     */
     public function MostrarNuevoLibro($msg = "") {
         echo '<div class="bg-gray-100 flex items-center justify-center min-h-screen">';
         echo '    <form method="POST" action="index.php?controller=LibrosController&action=nuevoLibro" class="my-6 p-9 h-full bg-white rounded-lg shadow-lg w-full max-w-md">';
@@ -36,3 +47,4 @@ class NuevoLibroView {
     }
 }
 ?>
+
