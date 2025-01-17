@@ -15,7 +15,7 @@ class ListarLibrosView {
             echo '<p class="text-gray-600 text-sm my-2">ISBN: ' . $libro['ISBN'] ;
             echo  '<br>';
             echo '<form method="POST" action="index.php?controller=ReservasController&action=mostrar" >';
-            echo '<input type="hidden" name="ISBN" value="' . $libro['ISBN'] . '">';
+            echo '<input type="hidden" name="isbn" value="' . $libro['ISBN'] . '">';
            echo '<button type="submit" class="shadow-lg mt-4 bg-red-500 text-white py-1 px-4 rounded hover:bg-white hover:text-red-500 border border-2 transition-all ease" name="reservar" value="' . $libro['ISBN'] . '">Reservar</button>';
             echo '</form>';
             echo '</div>';

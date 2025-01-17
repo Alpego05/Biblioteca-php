@@ -14,12 +14,15 @@
         <h1 class="text-center text-3xl font-bold">Biblioteca Ribera</h1>
     </div>
 
+    <!-- poner control de errores -->
     <?php
    
     ?>
+   
 
-    <div class="text-xl flex ">
-        <a href="index.php?controler=LoginController&action=logout">Cerrar Sesión <i class="ri-close-circle-line  mx-2"></i> </a>
+    <div class="text-xl flex">
+        <a class="mx-6" href="index.php?controler=ReservasController&action=">Mis Reservas <i class="ri-book-fill"></i> </a>
+        <a class="mx-6" href="index.php?controler=LoginController&action=logout">Cerrar Sesión <i class="ri-close-circle-line  mx-1"></i> </a>
            
     </div>
     <?php
