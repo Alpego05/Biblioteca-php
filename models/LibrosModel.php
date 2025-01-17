@@ -19,18 +19,19 @@ class LibrosModel{
     }
 
     public function eliminarLibro($ISBN){
-        $stmt = $this->pdo->prepare('DELETE FROM libros WHERE id = :ISBN');
+        $stmt = $this->pdo->prepare('DELETE FROM libros WHERE ISBN = :ISBN');
         $stmt->bindParam(':ISBN', $ISBN);
         $stmt->execute();
 
     }
 
-    public function agregarLibro($ISBN, $titulo, $autor){
+    public function agregarLibro($ISBN, $titulo, $autor, $genero){
 
-        $stmt = $this->pdo->prepare('INSERT INTO libros (ISBN, titulo, autor, url_imagen) VALUES (:ISBN, :titulo, :autor, :url_imagen)');
+        $stmt = $this->pdo->prepare('INSERT INTO libros (ISBN, titulo, autor, genero, url_imagen) VALUES (:ISBN, :titulo, :autor, :genero, :url_imagen)');
         $stmt->bindParam(':ISBN', $ISBN);
         $stmt->bindParam(':titulo',$titulo);
         $stmt->bindParam(':autor', $autor);
+        $stmt->bindParam(':genero', $genero);
 
         $url_defecto = '/placeholder/placeholder.jpg';
         $stmt->bindParam(':url_imagen', $url_defecto);
@@ -39,8 +40,14 @@ class LibrosModel{
 
     }
 
-    public function editarLibro($ISBN){
-        
+    public function editarLibro($isbn, $titulo, $autor, $genero, $url){
+        $stmt = $this->pdo->prepare('UPDATE libros SET titulo = :titulo, autor = :autor, genero = :genero, url_imagen = :url_imagen WHERE ISBN = :ISBN');
+        $stmt->bindParam(':ISBN', $isbn);
+        $stmt->bindParam(':titulo', $titulo);
+        $stmt->bindParam(':autor', $autor);
+        $stmt->bindParam(':genero', $genero);
+        $stmt->bindParam(':url_imagen', $url);
+        $stmt->execute();     
 
     }
 }

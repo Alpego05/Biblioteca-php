@@ -35,8 +35,12 @@ class ReservasModel {
         } */
     }
 
-    public function getReservasUser($id){
-        
+    public function getReservasPorId($id){
+        $sql = "SELECT * FROM reservas WHERE id_usuario = :id";
+        $stmt = $this->pdo->prepare($sql);
+        $id = $_SESSION['id'];
+        $stmt->bindParam(':id', $id);
+        $stmt->execute();
     }
 
     public function getReserva ($ISBN){

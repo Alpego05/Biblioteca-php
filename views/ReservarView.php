@@ -35,6 +35,7 @@ class ReservarView  {
        
         
         echo '        <button type="submit" class="w-full bg-red-800 text-white py-2 px-4 rounded hover:bg-red-900 transition-all ease">Reservar</button>';
+        
         echo '    </form>';
         echo '</div>';
       

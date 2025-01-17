@@ -11,6 +11,9 @@ class ReservasController {
         $this->view = new ReservarView();
     }
 
+   
+      
+
     public function mostrar($msg = '') {
         if ($_SERVER['REQUEST_METHOD'] == 'POST' && isset($_POST['isbn'])) {
              $this->view->mostrarFormReserva($msg); 
