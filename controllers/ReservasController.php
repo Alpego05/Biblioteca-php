@@ -11,11 +11,25 @@ class ReservasController {
         $this->view = new ReservarView();
     }
 
-    public function mostrar() {
+    public function mostrar($msg = '') {
         if ($_SERVER['REQUEST_METHOD'] == 'POST' && isset($_POST['isbn'])) {
-             $this->view->mostrarFormReserva(); 
+             $this->view->mostrarFormReserva($msg); 
 
         } 
+    }
+
+    public function reservar() {
+        if ($_SERVER['REQUEST_METHOD'] == 'POST' && isset($_POST['isbn'])) {
+
+            $id_usuario = $_SESSION['id'];
+            $isbn = $_POST['isbn'];
+            $fecha = $_POST['fecha_hasta'];
+
+            $this->model->nueva_reserva($id_usuario, $isbn, $fecha);
+            $this->mostrar('🆗 Reserva realizada con éxito.');
+
+        }
+
     }
 }
 ?>

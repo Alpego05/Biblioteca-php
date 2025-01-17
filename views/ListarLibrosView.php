@@ -3,6 +3,10 @@ class ListarLibrosView {
     // Muestra la lista de libros
     public function mostrarLibros($libros) {
         echo '<div class="container mx-auto p-4">';
+        if($_SESSION['role'] == 'A'){
+            echo '<button type="submit" class="shadow-lg mt-4 bg-red-500 w-full m-6 text-white py-1 px-4 rounded hover:bg-white hover:text-red-500 border border-2 transition-all ease" name="reservar" value="">Insertar Libro</button>';
+        }
+            
         echo '<div class="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-4">';
 
         foreach ($libros as $libro) {
@@ -17,7 +21,12 @@ class ListarLibrosView {
             echo '<form method="POST" action="index.php?controller=ReservasController&action=mostrar" >';
             echo '<input type="hidden" name="isbn" value="' . $libro['ISBN'] . '">';
            echo '<button type="submit" class="shadow-lg mt-4 bg-red-500 text-white py-1 px-4 rounded hover:bg-white hover:text-red-500 border border-2 transition-all ease" name="reservar" value="' . $libro['ISBN'] . '">Reservar</button>';
-            echo '</form>';
+           echo '</form>';
+           if($_SESSION['role'] == 'A'){
+            echo '<button type="submit" class="shadow-lg mt-4 bg-red-500 text-white py-1 px-4 rounded hover:bg-white hover:text-red-500 border border-2 transition-all ease" name="reservar" value="' . $libro['ISBN'] . '">Editar</button>';
+            echo '<button type="submit" class="shadow-lg mt-4 bg-red-500 text-white py-1 px-4 rounded hover:bg-white hover:text-red-500 border border-2 transition-all ease" name="reservar" value="' . $libro['ISBN'] . '">Eliminar</button>';
+          
+           }
             echo '</div>';
             echo '</div>';
         }

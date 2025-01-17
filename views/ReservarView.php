@@ -1,9 +1,14 @@
 <?php
 
 class ReservarView  {
-    public function mostrarFormReserva() {
+    public function mostrarFormReserva($msg = "") {
         echo '<div class="bg-gray-100 flex items-center justify-center min-h-screen">';
-        echo '    <form method="POST" action="index.php?controller=ReservasController&action=procesarReserva" class="my-6 p-9 h-full w-1/2 bg-white rounded-lg shadow-lg  max-w-md">';
+
+        echo '    <form method="POST" action="index.php?controller=ReservasController&action=reservar" class="my-6 p-9 h-full w-1/2 bg-white rounded-lg shadow-lg  max-w-md">';
+
+        if (!empty($msg)) {
+            echo '<p class="text-green-500 text-center mb-4">' . $msg . '</p>';
+        }
         echo '        <h2 class="text-2xl font-bold text-center mb-4">Reservar Libro</h2>';
         
         echo '        <table class="w-full border-collapse mb-4">';
@@ -14,16 +19,20 @@ class ReservarView  {
         echo '            </tr>';
 
         echo '            <tr>';
-        echo '                <td class="border p-2"><input type="text" name="nombre" class="w-full p-2 border border-gray-300 rounded" required></td>';
-        echo '                <td class="border p-2"><input readonly type="text" 
-                                value=" ' .  $_POST['isbn']  .        '"
+        echo '                <td class="border p-2"><input type="text" name="nombre" 
+                                value=" ' .  $_SESSION['username']  .        '" readonly
+        
+                                class="w-full p-2 border border-gray-300 rounded" required></td>';
+        echo '                <td class="border p-2"><input readonly name="isbn" type="text" 
+                                value="' .  $_POST['isbn']  .        '"
                                 class="w-full p-2 border border-gray-300 rounded" required></td>';
         echo '                <td class="border p-2"><input type="date" name="fecha_hasta" class="w-full p-2 border border-gray-300 rounded" required></td>';
         echo '            </tr>';
         echo '        </table>';
         
-        echo '        <input type="hidden" name="id_usuario" value="12345">';
-        echo '        <input type="hidden" name="fecha_desde" value="2025-01-17">';
+        echo '        <input type="hidden" name="id_usuario"
+                         value=" ' .  $_SESSION['id']  .        '">';
+       
         
         echo '        <button type="submit" class="w-full bg-red-800 text-white py-2 px-4 rounded hover:bg-red-900 transition-all ease">Reservar</button>';
         echo '    </form>';

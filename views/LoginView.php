@@ -12,12 +12,12 @@ class LoginView {
 
         echo '  <div class="mb-4">';
         echo '    <label for="username" class="block text-gray-700">Username:</label>';
-        echo '    <input type="text" id="username" name="username" class="w-full p-2 border border-gray-300 rounded mt-1 focus:outline-none focus:ring-2 focus:ring-purple-600" >';
+        echo '    <input type="text" id="username" name="username" class="w-full p-2 border border-gray-300 rounded mt-1 focus:outline-none focus:ring-2 focus:ring-red-600" >';
         echo '  </div>';
 
         echo '  <div class="mb-4">';
         echo '    <label for="password" class="block text-gray-700">Password:</label>';
-        echo '    <input type="password" id="password" name="password" class="w-full p-2 border border-gray-300 rounded mt-1 focus:outline-none focus:ring-2 focus:ring-purple-600" >';
+        echo '    <input type="password" id="password" name="password" class="w-full p-2 border border-gray-300 rounded mt-1 focus:outline-none focus:ring-2 focus:ring-red-600" >';
         echo '  </div>';
 
         echo '  <input type="hidden" name="controller" value="login">';
@@ -33,7 +33,7 @@ class LoginView {
 
         // Imagen de login (a la derecha del formulario)
         echo '<div class="flex justify-center mt-4">';
-        echo '  <img src="./assets/images/login.jpg" alt="Logo de la aplicación" width="350px" class="rounded-lg shadow-lg">';
+        echo '  <img src="./assets/images/login.jpg" alt="Logo de la aplicación" width="320px" class="rounded-lg shadow-lg">';
         echo '</div>';
         
         echo '</div>';

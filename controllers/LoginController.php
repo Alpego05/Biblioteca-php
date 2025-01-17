@@ -39,7 +39,7 @@ class LoginController
             session_regenerate_id(); // Evitar fijación de sesión
             $_SESSION['username'] = $username;
             $_SESSION['role'] = $usuario[0]['rol'];
-            $_SESSION["id"] = $usuario['id'];
+            $_SESSION["id"] = $usuario[0]['id'];
             
 
             // Redirigir tras login exitoso
