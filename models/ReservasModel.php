@@ -11,6 +11,14 @@ class ReservasModel {
         $this->pdo = $this->bd->getPDO(); 
     }
 
+    public function mostrarReserva (){
+
+    }
+
+    public function mostrarMisReservas($id){
+        
+    }
+
     public function nueva_reserva(){
         
     }

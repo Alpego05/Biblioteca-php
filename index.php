@@ -14,11 +14,17 @@
         <h1 class="text-center text-3xl font-bold">Biblioteca Ribera</h1>
     </div>
 
-    <div class="text-xl">
-        <i class="ri-menu-line"></i>
-        <i class="ri-file-user-fill"></i>
+    <?php
+   
+    ?>
 
+    <div class="text-xl flex ">
+        <a href="index.php?controler=LoginController&action=logout">Cerrar Sesión <i class="ri-close-circle-line  mx-2"></i> </a>
+           
     </div>
+    <?php
+    
+    ?>
 </header>
 
 <body>

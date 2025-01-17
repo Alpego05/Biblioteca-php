@@ -18,8 +18,7 @@ class LoginController
         $this->view->mostrarLogin($error);
     }
 
-    public function procesarLogin()
-{
+    public function procesarLogin(){
     if ($_SERVER['REQUEST_METHOD'] === 'POST') {
         $username = $_POST['username'] ?? '';
         $password = $_POST['password'] ?? '';
@@ -40,6 +39,8 @@ class LoginController
             session_regenerate_id(); // Evitar fijación de sesión
             $_SESSION['username'] = $username;
             $_SESSION['role'] = $usuario[0]['rol'];
+            $_SESSION["id"] = $usuario['id'];
+            
 
             // Redirigir tras login exitoso
             header('Location: index.php?controller=LibrosController&action=listar');
@@ -52,7 +53,17 @@ class LoginController
         // Si no es POST, mostrar el formulario
         $this->mostrarLogin();
     }
+
 }
+
+
+    public function logout(){
+        
+        session_unset();
+        session_destroy();
+
+        header('Location: index.php?controller=LoginController&action=mostrarLogin');
+    }
 
     
 }
